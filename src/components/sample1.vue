@@ -14,7 +14,7 @@
         </form>
         <hr />
 
-        <h1>Group 1</h1>
+        <h1>Group/Project 1</h1>
 
         <draggable
           v-model="items"
@@ -51,7 +51,7 @@
           </div>
         </draggable>
 
-        <h1>Group 2</h1>
+        <h1>Group/Project 2</h1>
 
         <draggable
           v-model="items2"
