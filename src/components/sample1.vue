@@ -13,8 +13,9 @@
           <button class="button is-link">Add</button>
         </form>
         <hr />
-        <ul v-for="(item, index) in items" v-bind:key="item.id">
-          <li>
+
+        <draggable v-model="items" @start="drag = true;" @end="drag = false;">
+          <div v-for="(item, index) in items" v-bind:key="item.id">
             ID: {{ index + 1 }}<br />
             Text: {{ item.text }}<br />
             Date Added: {{ item.date }}<br />
@@ -35,21 +36,33 @@
             >
               Remove
             </button>
-          </li>
-        </ul>
+          </div>
+        </draggable>
       </div>
     </section>
   </div>
 </template>
 
 <script>
+import draggable from "vuedraggable";
 export default {
   name: "HelloWorld",
+  components: {
+    draggable
+  },
   data() {
     return {
       items: [
         {
-          text: "test text",
+          text: "test text a",
+          date: new Date()
+        },
+        {
+          text: "test text b",
+          date: new Date()
+        },
+        {
+          text: "test text c",
           date: new Date()
         }
       ],
@@ -81,20 +94,23 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 h1,
 h2 {
   font-weight: normal;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
 a {
   color: #42b983;
+}
+
+.sortable-ghost {
+  background-color: orange;
+  padding: 20px;
+  transition: 0.4s;
+}
+
+.sortable-drag {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 20px;
 }
 </style>
