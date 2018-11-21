@@ -103,6 +103,13 @@ a {
   color: #42b983;
 }
 
+.draggable,
+.sortable-chosen {
+  transition: 0.4s;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+}
+
 .sortable-ghost {
   background-color: orange;
   padding: 20px;
@@ -112,5 +119,6 @@ a {
 .sortable-drag {
   background-color: rgba(0, 0, 0, 0.2);
   padding: 20px;
+  transition: 0.4s;
 }
 </style>
