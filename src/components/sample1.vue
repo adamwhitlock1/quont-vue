@@ -15,7 +15,11 @@
         <hr />
 
         <draggable v-model="items" @start="drag = true;" @end="drag = false;">
-          <div v-for="(item, index) in items" v-bind:key="item.id">
+          <div
+            v-for="(item, index) in items"
+            v-bind:key="item.id"
+            class="the-item"
+          >
             ID: {{ index + 1 }}<br />
             Text: {{ item.text }}<br />
             Date Added: {{ item.date }}<br />
@@ -103,22 +107,25 @@ a {
   color: #42b983;
 }
 
-.draggable,
+.the-item {
+  padding: 10px;
+}
+
 .sortable-chosen {
   transition: 0.4s;
   background-color: rgba(0, 0, 0, 0.4);
-  padding: 20px;
+  padding: 30px;
 }
 
 .sortable-ghost {
   background-color: orange;
-  padding: 20px;
+  padding: 30px;
   transition: 0.4s;
 }
 
 .sortable-drag {
   background-color: rgba(0, 0, 0, 0.2);
-  padding: 20px;
+  padding: 30px;
   transition: 0.4s;
 }
 </style>
