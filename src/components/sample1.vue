@@ -14,6 +14,8 @@
         </form>
         <hr />
 
+        <h1>Group 1</h1>
+
         <draggable
           v-model="items"
           :options="{ group: 'projects' }"
@@ -21,7 +23,6 @@
           @end="drag = false;"
           class="group-1"
         >
-          <h1>Group 1</h1>
           <div
             v-for="(item, index) in items"
             v-bind:key="item.id"
@@ -50,6 +51,8 @@
           </div>
         </draggable>
 
+        <h1>Group 2</h1>
+
         <draggable
           v-model="items2"
           :options="{ group: 'projects' }"
@@ -57,7 +60,6 @@
           @end="drag = false;"
           class="group-2"
         >
-          <h1>Group 2</h1>
           <div
             v-for="(item, index) in items2"
             v-bind:key="item.id"
