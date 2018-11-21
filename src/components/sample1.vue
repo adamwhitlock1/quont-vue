@@ -14,9 +14,52 @@
         </form>
         <hr />
 
-        <draggable v-model="items" @start="drag = true;" @end="drag = false;">
+        <draggable
+          v-model="items"
+          :options="{ group: 'projects' }"
+          @start="drag = true;"
+          @end="drag = false;"
+          class="group-1"
+        >
+          <h1>Group 1</h1>
           <div
             v-for="(item, index) in items"
+            v-bind:key="item.id"
+            class="the-item"
+          >
+            ID: {{ index + 1 }}<br />
+            Text: {{ item.text }}<br />
+            Date Added: {{ item.date }}<br />
+            <form
+              v-if="editing == index + 1"
+              @submit.prevent="commitEdit(index);"
+            >
+              <input v-model="editText" class="input is-small" />
+              <button class="button is-small is-primary">Save</button>
+            </form>
+
+            <button @click="editTodo(index);" class="button is-small is-info">
+              Edit
+            </button>
+            <button
+              @click="removeTodo(index);"
+              class="button is-small is-warning"
+            >
+              Remove
+            </button>
+          </div>
+        </draggable>
+
+        <draggable
+          v-model="items2"
+          :options="{ group: 'projects' }"
+          @start="drag = true;"
+          @end="drag = false;"
+          class="group-2"
+        >
+          <h1>Group 2</h1>
+          <div
+            v-for="(item, index) in items2"
             v-bind:key="item.id"
             class="the-item"
           >
@@ -70,6 +113,7 @@ export default {
           date: new Date()
         }
       ],
+      items2: [],
       newText: "",
       editText: "",
       editing: 0
@@ -99,6 +143,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
+.group-1,
+.group-2 {
+  border: dotted 2px gray;
+  margin: 10px;
+  padding: 15px;
+}
 h1,
 h2 {
   font-weight: normal;
