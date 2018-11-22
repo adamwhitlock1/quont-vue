@@ -1,7 +1,7 @@
 {
-  "name": "test-project",
+  "name": "quont",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "Save you favorite quotes or generate a random quote.",
   "main": "src/main.js",
   "private": true,
   "scripts": {
@@ -78,5 +78,12 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
+  ],
+  "keywords": [
+    "vue",
+    "moment",
+    "vuedraggable",
+    "bulma",
+    "vue-resource"
   ]
 }

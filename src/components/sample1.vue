@@ -223,7 +223,7 @@ export default {
     addTodo() {
       this.items.push({
         text: this.newText,
-        date: new Date(),
+        date: moment().format("MMMM Do YYYY, h:mm:ss a"),
         author: this.newAuthor,
         cat: this.newCat
       });
@@ -242,7 +242,11 @@ export default {
       );
     },
     removeTodo(index) {
-      this.items.splice(index, 1);
+      console.log(index);
+
+      let itemToDel = this.items.length - index - 1;
+      console.log(itemToDel);
+      this.items.splice(itemToDel, 1);
     },
     editTodo(index) {
       this.editing = this.editing === 0 ? index + 1 : 0;
