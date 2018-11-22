@@ -99,14 +99,14 @@
 
       <div class="container">
         <draggable
-          v-model="items.slice().reverse()"
+          v-model="items"
           :options="{ group: 'projects', delay: 150 }"
           @start="drag = true;"
           @end="drag = false;"
           class="group-1"
         >
           <div
-            v-for="(item, index) in items.slice().reverse()"
+            v-for="(item, index) in items"
             v-bind:key="item.id"
             class="the-item"
           >
@@ -121,7 +121,10 @@
                     <i class="fas fa-arrows-alt-v fa-lg"></i>
                   </div>
                   <div class="column">
-                    <div v-if="editing == 0 || editing != index + 1">
+                    <div
+                      @click="editTodo(index);"
+                      v-if="editing == 0 || editing != index + 1"
+                    >
                       {{ item.text }}
                     </div>
                     <form
@@ -332,19 +335,15 @@ export default {
     removeTodo(index) {
       console.log(index);
 
-      let itemToDel = this.items.length - index - 1;
-      console.log(itemToDel);
-      this.items.splice(itemToDel, 1);
+      this.items.splice(index, 1);
       this.$vf.setItem("quotes", this.items);
     },
     editTodo(index) {
-      let itemToedit = this.items.length - index - 1;
       this.editing = this.editing === 0 ? index + 1 : 0;
-      this.editText = this.items[itemToedit].text;
+      this.editText = this.items[index].text;
     },
     commitEdit(index) {
-      let itemToedit = this.items.length - index - 1;
-      this.items[itemToedit].text = this.editText;
+      this.items[index].text = this.editText;
       this.editText = "";
       this.editing = 0;
       this.$vf.setItem("quotes", this.items);
