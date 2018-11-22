@@ -100,7 +100,7 @@
       <div class="container">
         <draggable
           v-model="items"
-          :options="{ group: 'projects', delay: 150 }"
+          :options="{ group: 'projects', delay: 50 }"
           @start="drag = true;"
           @end="drag = false;"
           class="group-1"
