@@ -14,7 +14,9 @@
   },
   "dependencies": {
     "jest": "latest",
+    "moment": "2.22.2",
     "vue": "^2.5.2",
+    "vue-resource": "1.5.1",
     "vuedraggable": "2.16.0"
   },
   "devDependencies": {
