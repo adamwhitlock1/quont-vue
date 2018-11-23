@@ -3,8 +3,12 @@
 import Vue from "vue";
 import App from "./App";
 import VueResource from "vue-resource";
+import vf from "vue-forage";
+import VModal from "vue-js-modal";
 
 Vue.use(VueResource);
+Vue.use(vf);
+Vue.use(VModal);
 
 Vue.config.productionTip = false;
 
