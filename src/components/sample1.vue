@@ -201,6 +201,15 @@ import moment from "moment";
 export default {
   name: "HelloWorld",
 
+  watch: {
+    items: function(newVal, oldVal) {
+      console.log(`\n New Items \n `);
+      console.log(newVal);
+      console.log("-----------------------------");
+      this.$vf.setItem("quotes", this.items);
+    }
+  },
+
   mounted() {
     this.$vf.config({
       name: "vue-forage"
@@ -268,6 +277,7 @@ export default {
           }
         );
       }
+      this.$vf.setItem("quotes", this.items);
       this.modalActive = false;
     },
 
